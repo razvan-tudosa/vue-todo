@@ -22,17 +22,7 @@ let app = new Vue({
   },
   methods: {
     toggleTask (todo) {
-      // todo.done = !todo.done
-      this.todos = this.todos.map((crtTask) => {
-        if (crtTask.id === todo.id) {
-          return {
-            ...todo,
-            done: !todo.done
-          }
-        }
-
-        return crtTask
-      })
+      todo.done = !todo.done
     },
     getClasses (todo) {
       return [
@@ -46,14 +36,11 @@ let app = new Vue({
     addTask () {
       if (!this.newTask.trim())  return
       
-      this.todos = [
-        ...this.todos,
-        {
-          id: +new Date(),
-          text: this.newTask,
-          done: false
-        }
-      ]
+      this.todos.push({
+        id: +new Date(),
+        text: this.newTask,
+        done: false
+      })
 
       this.newTask = ''
     },
