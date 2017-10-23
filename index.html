@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue JS - Todo App</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app" class="container" v-cloak>
+    <h1 class="app-title">Amazing Todos</h1>
+    
+    <ul class="list-group">
+      <li
+        v-for="todo in todos"
+        v-bind:class="getClasses(todo)"
+        v-on:click="toggleTask(todo)"
+        class="list-item"
+      >
+        <span>{{todo.text}}</span>
+        <button
+            class="remove-btn"
+            v-on:click.stop="removeTask(todo)"
+        >
+        <div class="icon">+</div>
+        </button>
+      </li>
+    </ul>
+
+    <form v-on:submit.prevent="addTask">
+      <div class="form-row">
+        <div class="col-10">
+          <input v-model="newTask" type="text" class="form-control" placeholder="New todo...">
+        </div>
+
+        <div class="col-2">
+          <button v-on:click.prevent="addTask" class="btn btn-outline-primary add-task">Add</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
