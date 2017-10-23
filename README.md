@@ -1,5 +1,5 @@
 # Learning Vue
----
+
 This repo is my journey of learning VueJS.
 On `master` branch you will not find much other than this README.
 However, other branches may hold the various stages of my journey.
